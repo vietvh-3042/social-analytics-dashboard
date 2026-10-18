@@ -1,0 +1,215 @@
+<mxfile host="drawio-skill" agent="diagram-ir" version="3.0.0">
+  <diagram id="system" name="System">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject id="system--browser" label="Browser dashboard" link="data:page/id,deployment" data-model-id="browser" data-kind="external" data-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-label="Browser dashboard" data-provenance="{&quot;path&quot;:&quot;src/main/resources/templates/dashboard.html&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="60" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--web" label="Web and REST controllers" link="data:page/id,deployment" data-model-id="web" data-kind="service" data-properties="{&quot;tier&quot;:&quot;presentation&quot;,&quot;technology&quot;:&quot;Spring MVC&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-properties="{&quot;tier&quot;:&quot;presentation&quot;,&quot;technology&quot;:&quot;Spring MVC&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-label="Web and REST controllers" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/controller&quot;}" data-owner="application">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="290" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--services" label="Application services" link="data:page/id,deployment" data-model-id="services" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-label="Application services" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/service&quot;}" data-owner="application">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="520" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--async" label="Scheduler and messaging" link="data:page/id,deployment" data-model-id="async" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Scheduler and messaging" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/scheduler&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="60" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--integration" label="Integration adapters" link="data:page/id,deployment" data-model-id="integration" data-kind="service" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Integration adapters" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/integration&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="290" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--postgres" label="PostgreSQL" link="data:page/id,deployment" data-model-id="postgres" data-kind="database" data-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="PostgreSQL" data-provenance="{&quot;path&quot;:&quot;src/main/resources/db/migration&quot;}" data-owner="platform">
+          <mxCell style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="520" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--artemis" label="ActiveMQ Artemis" link="data:page/id,deployment" data-model-id="artemis" data-kind="queue" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="ActiveMQ Artemis" data-provenance="{&quot;path&quot;:&quot;docker-compose.yml&quot;}" data-owner="platform">
+          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="60" y="380" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="system--social" label="Facebook / Twitter" link="data:page/id,deployment" data-model-id="social" data-kind="external" data-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-label="Facebook / Twitter" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/architecture.ir.json&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="290" y="380" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="edge-system-0" value="REST / WebSocket" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--browser" target="system--web" data-model-id="browser-web" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="REST / WebSocket">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-1" value="use cases" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--web" target="system--services" data-model-id="web-services" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="use cases">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-2" value="JPA / Flyway schema" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--services" target="system--postgres" data-model-id="services-db" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="JPA / Flyway schema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-3" value="metric and import events" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--services" target="system--async" data-model-id="services-async" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="metric and import events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-4" value="metrics and aggregates" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--async" target="system--postgres" data-model-id="async-db" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="metrics and aggregates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-5" value="IMPORT_COMPLETED" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--async" target="system--artemis" data-model-id="async-broker" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="IMPORT_COMPLETED">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-6" value="provider data" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--integration" target="system--services" data-model-id="integration-services" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="provider data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-7" value="optional APIs" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--integration" target="system--social" data-model-id="integration-social" data-kind="sync" data-properties="{&quot;timeout&quot;:&quot;5s&quot;}" data-source-properties="{&quot;timeout&quot;:&quot;5s&quot;}" data-source-label="optional APIs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-8" value="import listener" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="system--artemis" target="system--services" data-model-id="broker-services" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="import listener">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="deployment" name="Deployment">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject id="deployment--browser" label="Browser dashboard" link="data:page/id,security" data-model-id="browser" data-kind="external" data-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-label="Browser dashboard" data-provenance="{&quot;path&quot;:&quot;src/main/resources/templates/dashboard.html&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="60" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--web" label="Web and REST controllers" link="data:page/id,system" data-model-id="web" data-kind="service" data-properties="{&quot;tier&quot;:&quot;presentation&quot;,&quot;technology&quot;:&quot;Spring MVC&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-properties="{&quot;tier&quot;:&quot;presentation&quot;,&quot;technology&quot;:&quot;Spring MVC&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-label="Web and REST controllers" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/controller&quot;}" data-owner="application">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="290" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--services" label="Application services" link="data:page/id,dataflow" data-model-id="services" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-label="Application services" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/service&quot;}" data-owner="application">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="520" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--async" label="Scheduler and messaging" link="data:page/id,dataflow" data-model-id="async" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Scheduler and messaging" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/scheduler&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="60" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--integration" label="Integration adapters" link="data:page/id,dataflow" data-model-id="integration" data-kind="service" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Integration adapters" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/integration&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="290" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--postgres" label="PostgreSQL" link="data:page/id,security" data-model-id="postgres" data-kind="database" data-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="PostgreSQL" data-provenance="{&quot;path&quot;:&quot;src/main/resources/db/migration&quot;}" data-owner="platform">
+          <mxCell style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="520" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--artemis" label="ActiveMQ Artemis" link="data:page/id,dataflow" data-model-id="artemis" data-kind="queue" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="ActiveMQ Artemis" data-provenance="{&quot;path&quot;:&quot;docker-compose.yml&quot;}" data-owner="platform">
+          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="60" y="380" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="deployment--social" label="Facebook / Twitter" link="data:page/id,security" data-model-id="social" data-kind="external" data-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-label="Facebook / Twitter" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/architecture.ir.json&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="290" y="380" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="edge-deployment-0" value="REST / WebSocket" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--browser" target="deployment--web" data-model-id="browser-web" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="REST / WebSocket">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-1" value="use cases" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--web" target="deployment--services" data-model-id="web-services" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="use cases">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-2" value="JPA / Flyway schema" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--services" target="deployment--postgres" data-model-id="services-db" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="JPA / Flyway schema">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-3" value="metric and import events" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--services" target="deployment--async" data-model-id="services-async" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="metric and import events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-4" value="metrics and aggregates" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--async" target="deployment--postgres" data-model-id="async-db" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="metrics and aggregates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-5" value="IMPORT_COMPLETED" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--async" target="deployment--artemis" data-model-id="async-broker" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="IMPORT_COMPLETED">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-6" value="provider data" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--integration" target="deployment--services" data-model-id="integration-services" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="provider data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-7" value="optional APIs" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--integration" target="deployment--social" data-model-id="integration-social" data-kind="sync" data-properties="{&quot;timeout&quot;:&quot;5s&quot;}" data-source-properties="{&quot;timeout&quot;:&quot;5s&quot;}" data-source-label="optional APIs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-deployment-8" value="import listener" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="deployment--artemis" target="deployment--services" data-model-id="broker-services" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="import listener">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="dataflow" name="Dataflow">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject id="dataflow--services" label="Application services" link="data:page/id,system" data-model-id="services" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;Spring services + transactions&quot;,&quot;owner&quot;:&quot;application&quot;}" data-source-label="Application services" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/service&quot;}" data-owner="application">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="60" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="dataflow--async" label="Scheduler and messaging" link="data:page/id,system" data-model-id="async" data-kind="service" data-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;application&quot;,&quot;technology&quot;:&quot;@Scheduled + @Async + JMS + WebSocket&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Scheduler and messaging" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/scheduler&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="290" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="dataflow--integration" label="Integration adapters" link="data:page/id,system" data-model-id="integration" data-kind="service" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;Mock social provider + SOAP + OAuth2&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="Integration adapters" data-provenance="{&quot;path&quot;:&quot;src/main/java/com/learning/social_analytics_dashboard/integration&quot;}" data-owner="platform">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="60" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="dataflow--artemis" label="ActiveMQ Artemis" link="data:page/id,system" data-model-id="artemis" data-kind="queue" data-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;infrastructure&quot;,&quot;technology&quot;:&quot;JMS import.completed + DLQ&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="ActiveMQ Artemis" data-provenance="{&quot;path&quot;:&quot;docker-compose.yml&quot;}" data-owner="platform">
+          <mxCell style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="290" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="edge-dataflow-0" value="metric and import events" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="dataflow--services" target="dataflow--async" data-model-id="services-async" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="metric and import events">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dataflow-1" value="IMPORT_COMPLETED" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="dataflow--async" target="dataflow--artemis" data-model-id="async-broker" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="IMPORT_COMPLETED">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dataflow-2" value="provider data" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="dataflow--integration" target="dataflow--services" data-model-id="integration-services" data-kind="sync" data-properties="{}" data-source-properties="{}" data-source-label="provider data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-dataflow-3" value="import listener" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="dataflow--artemis" target="dataflow--services" data-model-id="broker-services" data-kind="async" data-properties="{}" data-source-properties="{}" data-source-label="import listener">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="security" name="Security">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject id="security--browser" label="Browser dashboard" link="data:page/id,system" data-model-id="browser" data-kind="external" data-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-properties="{&quot;tier&quot;:&quot;client&quot;,&quot;technology&quot;:&quot;Thymeleaf + Chart.js + STOMP&quot;}" data-source-label="Browser dashboard" data-provenance="{&quot;path&quot;:&quot;src/main/resources/templates/dashboard.html&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="60" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="security--postgres" label="PostgreSQL" link="data:page/id,system" data-model-id="postgres" data-kind="database" data-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-properties="{&quot;tier&quot;:&quot;data&quot;,&quot;technology&quot;:&quot;PostgreSQL 16 + Flyway&quot;,&quot;owner&quot;:&quot;platform&quot;}" data-source-label="PostgreSQL" data-provenance="{&quot;path&quot;:&quot;src/main/resources/db/migration&quot;}" data-owner="platform">
+          <mxCell style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="290" y="80" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject id="security--social" label="Facebook / Twitter" link="data:page/id,system" data-model-id="social" data-kind="external" data-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-properties="{&quot;tier&quot;:&quot;external&quot;,&quot;technology&quot;:&quot;Optional OAuth2 and provider APIs&quot;}" data-source-label="Facebook / Twitter" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/architecture.ir.json&quot;}">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="60" y="230" width="160" height="70" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

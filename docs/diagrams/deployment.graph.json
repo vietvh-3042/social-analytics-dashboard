@@ -1,0 +1,58 @@
+{
+  "direction": "TB",
+  "nodes": [
+    {
+      "id": "postgres",
+      "label": "postgres\npostgres:16-alpine",
+      "style": "rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+      "width": 160,
+      "height": 60
+    },
+    {
+      "id": "pgadmin",
+      "label": "pgadmin\ndpage/pgadmin4:8",
+      "style": "rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+      "width": 160,
+      "height": 60
+    },
+    {
+      "id": "activemq",
+      "label": "activemq\napache/activemq-artemis:2.37.0-alpine",
+      "style": "rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+      "width": 160,
+      "height": 60
+    },
+    {
+      "id": "app",
+      "label": "app\nbuild: .",
+      "style": "rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;",
+      "width": 160,
+      "height": 60
+    },
+    {
+      "id": "vol:postgres-data",
+      "label": "postgres-data",
+      "style": "shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;",
+      "width": 120,
+      "height": 70
+    }
+  ],
+  "edges": [
+    {
+      "source": "app",
+      "target": "activemq"
+    },
+    {
+      "source": "app",
+      "target": "postgres"
+    },
+    {
+      "source": "pgadmin",
+      "target": "postgres"
+    },
+    {
+      "source": "postgres",
+      "target": "vol:postgres-data"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<mxfile host="drawio-skill" agent="diagram-ir" version="3.0.0">
+  <diagram id="system" name="System">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="app_user" value="app_user PK id: uuid username: varchar(120) display_name: varchar(160) role: varchar(20) created_at: timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="app_user" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="app_user&#10;PK id: uuid&#10;username: varchar(120)&#10;display_name: varchar(160)&#10;role: varchar(20)&#10;created_at: timestamptz" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="40" y="80" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="social_account" value="social_account PK id: uuid FK user_id: uuid provider: varchar(30) external_id: varchar(180) access_token_reference: varchar(255) last_synced_at: timestamptz connected_at: timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="social_account" data-kind="external" data-properties="{}" data-source-properties="{}" data-source-label="social_account&#10;PK id: uuid&#10;FK user_id: uuid&#10;provider: varchar(30)&#10;external_id: varchar(180)&#10;access_token_reference: varchar(255)&#10;last_synced_at: timestamptz&#10;connected_at: timestamptz" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="360" y="80" width="300" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="post" value="post PK id: uuid FK social_account_id: uuid source: varchar(30) external_id: varchar(180) content: varchar(5000) published_at: timestamptz created_at: timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="post" data-kind="external" data-properties="{}" data-source-properties="{}" data-source-label="post&#10;PK id: uuid&#10;FK social_account_id: uuid&#10;source: varchar(30)&#10;external_id: varchar(180)&#10;content: varchar(5000)&#10;published_at: timestamptz&#10;created_at: timestamptz" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="740" y="80" width="300" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="social_metric" value="social_metric PK id: uuid FK post_id: uuid likes: bigint shares: bigint comments: bigint followers: bigint measured_at: timestamptz provider: varchar(30)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="social_metric" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="social_metric&#10;PK id: uuid&#10;FK post_id: uuid&#10;likes: bigint&#10;shares: bigint&#10;comments: bigint&#10;followers: bigint&#10;measured_at: timestamptz&#10;provider: varchar(30)" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="740" y="330" width="300" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="import_batch" value="import_batch PK id: uuid filename: varchar(255) status: varchar(20) imported_rows: integer rejected_rows: integer completed_at: timestamptz" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="import_batch" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="import_batch&#10;PK id: uuid&#10;filename: varchar(255)&#10;status: varchar(20)&#10;imported_rows: integer&#10;rejected_rows: integer&#10;completed_at: timestamptz" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="40" y="330" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="metric_aggregate" value="metric_aggregate PK bucket: timestamptz PK source: varchar(30) likes: bigint shares: bigint followers: bigint" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;spacingTop=4;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="metric_aggregate" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="metric_aggregate&#10;PK bucket: timestamptz&#10;PK source: varchar(30)&#10;likes: bigint&#10;shares: bigint&#10;followers: bigint" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/data-model.graph.json&quot;}">
+          <mxGeometry x="400" y="330" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-0" value="user_id" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;fontSize=11;labelBackgroundColor=#ffffff;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="social_account" target="app_user" data-model-id="social_account--app_user" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="user_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-1" value="social_account_id" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;fontSize=11;labelBackgroundColor=#ffffff;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="post" target="social_account" data-model-id="post--social_account" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="social_account_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-2" value="post_id" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;fontSize=11;labelBackgroundColor=#ffffff;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="1" source="social_metric" target="post" data-model-id="social_metric--post" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="post_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

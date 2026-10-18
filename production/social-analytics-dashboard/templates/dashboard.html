@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social Analytics Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.6.1/dist/sockjs.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js" defer></script>
+  <script src="/js/dashboard.js" defer></script>
+</head>
+<body>
+<main class="shell" id="dashboard" aria-busy="true">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SOCIAL ANALYTICS</p>
+      <h1>Engagement overview</h1>
+      <p class="muted">Track imported and connected social metrics in one place.</p>
+    </div>
+    <div class="actions">
+      <a class="button button-secondary" href="/swagger-ui.html">API docs</a>
+      <a class="button button-primary" href="/api/export-report">Export report</a>
+    </div>
+  </header>
+
+  <section class="kpi-grid" aria-label="Key metrics">
+    <article class="card kpi-card"><span>Total posts</span><strong id="total-posts">—</strong><small>All sources</small></article>
+    <article class="card kpi-card"><span>Likes</span><strong id="total-likes">—</strong><small>Latest dataset</small></article>
+    <article class="card kpi-card"><span>Shares</span><strong id="total-shares">—</strong><small>Latest dataset</small></article>
+    <article class="card kpi-card"><span>Followers</span><strong id="total-followers">—</strong><small id="last-updated">Waiting for update</small></article>
+  </section>
+
+  <section class="content-grid">
+    <article class="card chart-card">
+      <div class="card-heading"><div><p class="eyebrow">TREND</p><h2>Metric movement</h2></div><span class="live-dot" id="live-status">Connecting</span></div>
+      <div class="chart-wrap"><canvas id="metrics-chart" aria-label="Line chart of social metrics over time"></canvas></div>
+      <div class="state" id="chart-state" role="status" aria-live="polite">Loading metrics…</div>
+    </article>
+    <article class="card import-card">
+      <div class="card-heading"><div><p class="eyebrow">DATA IN</p><h2>Import posts</h2></div></div>
+      <p class="muted">Upload an .xlsx workbook with content and publishedAt columns.</p>
+      <form id="import-form">
+        <label for="workbook">Excel workbook</label>
+        <input id="workbook" name="file" type="file" accept=".xlsx" required>
+        <button class="button button-primary" type="submit">Import workbook</button>
+        <p class="state" id="import-state" role="status" aria-live="polite"></p>
+      </form>
+    </article>
+  </section>
+
+  <section class="card table-card">
+    <div class="card-heading"><div><p class="eyebrow">RECENT CONTENT</p><h2>Posts</h2></div><a href="/api/posts">JSON</a></div>
+    <div class="table-scroll"><table><thead><tr><th>Content</th><th>Source</th><th>Published</th></tr></thead><tbody id="posts-body"></tbody></table></div>
+    <div class="state" id="posts-state" role="status" aria-live="polite">Loading posts…</div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<mxfile host="drawio-skill" agent="diagram-ir" version="3.0.0">
+  <diagram id="system" name="System">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="postgres" value="postgres postgres:16-alpine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="postgres" data-kind="database" data-properties="{}" data-source-properties="{}" data-source-label="postgres&#10;postgres:16-alpine" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/deployment.graph.json&quot;}">
+          <mxGeometry x="60" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pgadmin" value="pgadmin dpage/pgadmin4:8" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="pgadmin" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="pgadmin&#10;dpage/pgadmin4:8" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/deployment.graph.json&quot;}">
+          <mxGeometry x="290" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="activemq" value="activemq apache/activemq-artemis:2.37.0-alpine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="activemq" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="activemq&#10;apache/activemq-artemis:2.37.0-alpine" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/deployment.graph.json&quot;}">
+          <mxGeometry x="520" y="80" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="app" value="app build: ." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1" data-model-id="app" data-kind="service" data-properties="{}" data-source-properties="{}" data-source-label="app&#10;build: ." data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/deployment.graph.json&quot;}">
+          <mxGeometry x="60" y="230" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vol:postgres-data" value="postgres-data" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1" data-model-id="vol:postgres-data" data-kind="database" data-properties="{}" data-source-properties="{}" data-source-label="postgres-data" data-provenance="{&quot;path&quot;:&quot;/home/Workspaces/social-analytics-dashboard/docs/diagrams/deployment.graph.json&quot;}">
+          <mxGeometry x="290" y="230" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-0" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="app" target="activemq" data-model-id="app--activemq" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="app" target="postgres" data-model-id="app--postgres" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="pgadmin" target="postgres" data-model-id="pgadmin--postgres" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-system-3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="postgres" target="vol:postgres-data" data-model-id="postgres--vol:postgres-data" data-kind="relation" data-properties="{}" data-source-properties="{}" data-source-label="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

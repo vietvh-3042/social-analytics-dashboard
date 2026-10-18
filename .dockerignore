@@ -1,0 +1,10 @@
+.git
+.idea
+.gradle
+build
+.env
+*.log
+specs
+plans
+node_modules
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "title": "Excel import and dashboard refresh",
+  "participants": [
+    {"id": "user", "label": "Dashboard user", "actor": true},
+    {"id": "browser", "label": "Browser"},
+    {"id": "app", "label": "Spring Boot"},
+    {"id": "db", "label": "PostgreSQL"},
+    {"id": "broker", "label": "Artemis"},
+    {"id": "listener", "label": "JMS listener"}
+  ],
+  "messages": [
+    {"from": "user", "to": "browser", "label": "Select .xlsx and submit"},
+    {"from": "browser", "to": "app", "label": "POST /api/import-posts"},
+    {"from": "app", "to": "db", "label": "Create ImportBatch"},
+    {"from": "app", "to": "db", "label": "Save valid Post rows"},
+    {"from": "app", "to": "broker", "label": "Publish IMPORT_COMPLETED", "async": true},
+    {"from": "app", "to": "browser", "label": "ImportResult: counts + diagnostics", "return": true},
+    {"from": "broker", "to": "listener", "label": "Deliver import.completed", "async": true},
+    {"from": "listener", "to": "db", "label": "Refresh metric aggregates"},
+    {"from": "listener", "to": "browser", "label": "Metrics topic triggers refresh", "async": true},
+    {"from": "browser", "to": "app", "label": "GET summary + chart + posts"},
+    {"from": "app", "to": "db", "label": "Read dashboard data"},
+    {"from": "app", "to": "browser", "label": "Render updated dashboard", "return": true}
+  ]
+}

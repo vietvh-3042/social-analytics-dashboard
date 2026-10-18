@@ -1,0 +1,23 @@
+{
+  "title": "architecture.drawio",
+  "nodes": 23,
+  "edges": 22,
+  "kinds": {
+    "external": 6,
+    "service": 11,
+    "database": 3,
+    "queue": 3
+  },
+  "owners": {},
+  "sources": [
+    "/home/Workspaces/social-analytics-dashboard/docs/diagrams/architecture.ir.json",
+    "docker-compose.yml",
+    "src/main/java/com/learning/social_analytics_dashboard/controller",
+    "src/main/java/com/learning/social_analytics_dashboard/integration",
+    "src/main/java/com/learning/social_analytics_dashboard/scheduler",
+    "src/main/java/com/learning/social_analytics_dashboard/service",
+    "src/main/resources/db/migration",
+    "src/main/resources/templates/dashboard.html"
+  ],
+  "alt_text": "architecture.drawio: 23 components (3 database, 6 external, 3 queue, 11 service) and 22 relationships."
+}

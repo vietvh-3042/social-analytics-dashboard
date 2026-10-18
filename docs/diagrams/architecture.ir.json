@@ -1,0 +1,28 @@
+{
+  "schema": "drawio-skill/diagram-ir/v1",
+  "metadata": {
+    "title": "Social Analytics Dashboard architecture",
+    "description": "Source-backed architecture view for the Spring Boot social analytics application"
+  },
+  "nodes": [
+    {"id": "browser", "label": "Browser dashboard", "kind": "external", "properties": {"tier": "client", "technology": "Thymeleaf + Chart.js + STOMP"}, "provenance": {"path": "src/main/resources/templates/dashboard.html"}},
+    {"id": "web", "label": "Web and REST controllers", "kind": "service", "properties": {"tier": "presentation", "technology": "Spring MVC", "owner": "application"}, "provenance": {"path": "src/main/java/com/learning/social_analytics_dashboard/controller"}},
+    {"id": "services", "label": "Application services", "kind": "service", "properties": {"tier": "application", "technology": "Spring services + transactions", "owner": "application"}, "provenance": {"path": "src/main/java/com/learning/social_analytics_dashboard/service"}},
+    {"id": "async", "label": "Scheduler and messaging", "kind": "service", "properties": {"tier": "application", "technology": "@Scheduled + @Async + JMS + WebSocket", "owner": "platform"}, "provenance": {"path": "src/main/java/com/learning/social_analytics_dashboard/scheduler"}},
+    {"id": "integration", "label": "Integration adapters", "kind": "service", "properties": {"tier": "infrastructure", "technology": "Mock social provider + SOAP + OAuth2", "owner": "platform"}, "provenance": {"path": "src/main/java/com/learning/social_analytics_dashboard/integration"}},
+    {"id": "postgres", "label": "PostgreSQL", "kind": "database", "properties": {"tier": "data", "technology": "PostgreSQL 16 + Flyway", "owner": "platform"}, "provenance": {"path": "src/main/resources/db/migration"}},
+    {"id": "artemis", "label": "ActiveMQ Artemis", "kind": "queue", "properties": {"tier": "infrastructure", "technology": "JMS import.completed + DLQ", "owner": "platform"}, "provenance": {"path": "docker-compose.yml"}},
+    {"id": "social", "label": "Facebook / Twitter", "kind": "external", "properties": {"tier": "external", "technology": "Optional OAuth2 and provider APIs"}}
+  ],
+  "edges": [
+    {"id": "browser-web", "source": "browser", "target": "web", "label": "REST / WebSocket", "kind": "sync"},
+    {"id": "web-services", "source": "web", "target": "services", "label": "use cases", "kind": "sync"},
+    {"id": "services-db", "source": "services", "target": "postgres", "label": "JPA / Flyway schema", "kind": "sync"},
+    {"id": "services-async", "source": "services", "target": "async", "label": "metric and import events", "kind": "async"},
+    {"id": "async-db", "source": "async", "target": "postgres", "label": "metrics and aggregates", "kind": "sync"},
+    {"id": "async-broker", "source": "async", "target": "artemis", "label": "IMPORT_COMPLETED", "kind": "async"},
+    {"id": "integration-services", "source": "integration", "target": "services", "label": "provider data", "kind": "sync"},
+    {"id": "integration-social", "source": "integration", "target": "social", "label": "optional APIs", "kind": "sync", "properties": {"timeout": "5s"}},
+    {"id": "broker-services", "source": "artemis", "target": "services", "label": "import listener", "kind": "async"}
+  ]
+}
