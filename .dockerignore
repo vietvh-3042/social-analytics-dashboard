@@ -1,0 +1,13 @@
+.git
+.gradle
+build
+frontend
+plans
+specs
+design-system
+docs
+node_modules
+.env
+.env.*
+!.env.example
+*.log
