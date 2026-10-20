@@ -60,6 +60,8 @@ export const DATE_RANGE_DAYS = 30;
 export const RECENT_METRIC_LIMIT = 100;
 export const AUTH_STALE_TIME_MS = 60_000;
 export const REPORT_FILENAME = "social-analytics-report.xlsx";
+export const REPORT_MEDIA_TYPE =
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 export const ERROR_MESSAGES = {
   authenticationRequired: "Please sign in with Facebook to continue.",
   apiUnavailable: "The analytics service is unavailable. Try again shortly.",

@@ -1,5 +1,13 @@
 # Project Changelog
 
+## 2026-10-21 — Importable report export columns
+
+- Fixed generated report workbooks so `post_url` is the first column and can be uploaded directly through the post import endpoint.
+
+## 2026-10-20 — Report export content negotiation
+
+- Fixed frontend report downloads returning `406 Not Acceptable` by requesting the XLSX media type instead of JSON for `GET /api/reports/export`.
+
 ## 2026-10-20 — SPA CSRF token handling
 
 - Fixed Spring Security 6.5 rejecting raw CSRF tokens sent from the frontend cookie in `X-XSRF-TOKEN` on PUT/POST requests.

@@ -3,11 +3,11 @@ package com.learning.socialanalytics.dto;
 import com.learning.socialanalytics.util.SpreadsheetColumn;
 
 public class MetricExportRow {
-    @SpreadsheetColumn(value = "post_title", order = 1)
-    private final String postTitle;
-
-    @SpreadsheetColumn(value = "post_url", order = 2)
+    @SpreadsheetColumn(value = "post_url", order = 1)
     private final String postUrl;
+
+    @SpreadsheetColumn(value = "post_title", order = 2)
+    private final String postTitle;
 
     @SpreadsheetColumn(value = "likes", order = 3)
     private final long likes;

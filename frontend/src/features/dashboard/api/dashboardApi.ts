@@ -1,5 +1,5 @@
 import { apiClient, loadCsrfToken } from '@/shared/api/apiClient';
-import { API_PATHS } from '@/shared/config/constants';
+import { API_PATHS, REPORT_MEDIA_TYPE } from '@/shared/config/constants';
 import type { ChartPoint, CrawlSettings, MetricHistory, SyncRun } from '@/features/dashboard/model/types';
 
 export const dashboardApi = {
@@ -30,7 +30,10 @@ export const dashboardApi = {
     return data;
   },
   exportReport: async (): Promise<Blob> => {
-    const { data } = await apiClient.get<Blob>(API_PATHS.reportExport, { responseType: 'blob' });
+    const { data } = await apiClient.get<Blob>(API_PATHS.reportExport, {
+      responseType: 'blob',
+      headers: { Accept: REPORT_MEDIA_TYPE },
+    });
     return data;
   },
 };
