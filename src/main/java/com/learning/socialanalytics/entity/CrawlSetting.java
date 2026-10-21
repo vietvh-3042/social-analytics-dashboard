@@ -11,61 +11,44 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.time.Instant;
 import java.util.UUID;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "crawl_settings")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CrawlSetting {
-    @Id private UUID adminId;
+  @Id private UUID adminId;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @MapsId
-    @JoinColumn(name = "admin_id")
-    private AdminUser admin;
+  @OneToOne(fetch = FetchType.LAZY, optional = false)
+  @MapsId
+  @JoinColumn(name = "admin_id")
+  private AdminUser admin;
 
-    @Column(nullable = false)
-    private int intervalMinutes = ApplicationConstants.DEFAULT_SYNC_INTERVAL_MINUTES;
+  @Column(nullable = false)
+  private int intervalMinutes = ApplicationConstants.DEFAULT_SYNC_INTERVAL_MINUTES;
 
-    @Column(nullable = false)
-    private boolean enabled = true;
+  @Column(nullable = false)
+  private boolean enabled = true;
 
-    private Instant lastRunAt;
-    private Instant nextRunAt =
-            Instant.now().plusSeconds(ApplicationConstants.DEFAULT_SYNC_INTERVAL_MINUTES * 60L);
+  private Instant lastRunAt;
+  private Instant nextRunAt =
+      Instant.now().plusSeconds(ApplicationConstants.DEFAULT_SYNC_INTERVAL_MINUTES * 60L);
 
-    protected CrawlSetting() {}
+  public CrawlSetting(AdminUser admin) {
+    this.admin = admin;
+  }
 
-    public CrawlSetting(AdminUser admin) {
-        this.admin = admin;
-    }
+  public void update(int minutes, boolean isEnabled) {
+    intervalMinutes = minutes;
+    enabled = isEnabled;
+    nextRunAt = isEnabled ? Instant.now().plusSeconds(minutes * 60L) : null;
+  }
 
-    public void update(int minutes, boolean isEnabled) {
-        intervalMinutes = minutes;
-        enabled = isEnabled;
-        nextRunAt = isEnabled ? Instant.now().plusSeconds(minutes * 60L) : null;
-    }
-
-    public void markRun(Instant now) {
-        lastRunAt = now;
-        nextRunAt = enabled ? now.plusSeconds(intervalMinutes * 60L) : null;
-    }
-
-    public UUID getAdminId() {
-        return adminId;
-    }
-
-    public int getIntervalMinutes() {
-        return intervalMinutes;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public Instant getLastRunAt() {
-        return lastRunAt;
-    }
-
-    public Instant getNextRunAt() {
-        return nextRunAt;
-    }
+  public void markRun(Instant now) {
+    lastRunAt = now;
+    nextRunAt = enabled ? now.plusSeconds(intervalMinutes * 60L) : null;
+  }
 }

@@ -20,52 +20,52 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Testcontainers
 class CrawlSettingServiceIntegrationTest {
-    @Container
-    private static final PostgreSQLContainer<?> POSTGRES =
-            new PostgreSQLContainer<>("postgres:16-alpine");
+  @Container
+  private static final PostgreSQLContainer<?> POSTGRES =
+      new PostgreSQLContainer<>("postgres:16-alpine");
 
-    @Autowired private AdminUserRepository adminUserRepository;
-    @Autowired private CrawlSettingRepository crawlSettingRepository;
-    @Autowired private TestEntityManager entityManager;
+  @Autowired private AdminUserRepository adminUserRepository;
+  @Autowired private CrawlSettingRepository crawlSettingRepository;
+  @Autowired private TestEntityManager entityManager;
 
-    @DynamicPropertySource
-    static void postgresProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", POSTGRES::getJdbcUrl);
-        registry.add("spring.datasource.username", POSTGRES::getUsername);
-        registry.add("spring.datasource.password", POSTGRES::getPassword);
-    }
+  @DynamicPropertySource
+  static void postgresProperties(DynamicPropertyRegistry registry) {
+    registry.add("spring.datasource.url", POSTGRES::getJdbcUrl);
+    registry.add("spring.datasource.username", POSTGRES::getUsername);
+    registry.add("spring.datasource.password", POSTGRES::getPassword);
+  }
 
-    @Test
-    void createsDefaultSettingForExistingAdminWithoutOne() {
-        AdminUser admin =
-                adminUserRepository.saveAndFlush(
-                        new AdminUser("test-facebook-subject", "Test Admin", null, null));
-        entityManager.detach(admin);
-        CrawlSettingService service =
-                new CrawlSettingService(adminUserRepository, crawlSettingRepository);
+  @Test
+  void createsDefaultSettingForExistingAdminWithoutOne() {
+    AdminUser admin =
+        adminUserRepository.saveAndFlush(
+            new AdminUser("test-facebook-subject", "Test Admin", null, null));
+    entityManager.detach(admin);
+    CrawlSettingService service =
+        new CrawlSettingService(adminUserRepository, crawlSettingRepository);
 
-        var result = service.getOrCreate(admin);
+    var result = service.getOrCreate(admin);
 
-        assertThat(result.intervalMinutes()).isEqualTo(60);
-        assertThat(result.enabled()).isTrue();
-        assertThat(result.nextRunAt()).isNotNull();
-        assertThat(crawlSettingRepository.findByAdmin_Id(admin.getId())).isPresent();
-    }
+    assertThat(result.intervalMinutes()).isEqualTo(60);
+    assertThat(result.enabled()).isTrue();
+    assertThat(result.nextRunAt()).isNotNull();
+    assertThat(crawlSettingRepository.findByAdminId(admin.getId())).isPresent();
+  }
 
-    @Test
-    void updatesSettingForExistingAdminWithoutOne() {
-        AdminUser admin =
-                adminUserRepository.saveAndFlush(
-                        new AdminUser("another-test-subject", "Test Admin", null, null));
-        entityManager.detach(admin);
-        CrawlSettingService service =
-                new CrawlSettingService(adminUserRepository, crawlSettingRepository);
+  @Test
+  void updatesSettingForExistingAdminWithoutOne() {
+    AdminUser admin =
+        adminUserRepository.saveAndFlush(
+            new AdminUser("another-test-subject", "Test Admin", null, null));
+    entityManager.detach(admin);
+    CrawlSettingService service =
+        new CrawlSettingService(adminUserRepository, crawlSettingRepository);
 
-        var result = service.update(admin, 120, true);
+    var result = service.update(admin, 120, true);
 
-        assertThat(result.intervalMinutes()).isEqualTo(120);
-        assertThat(result.enabled()).isTrue();
-        assertThat(result.nextRunAt()).isNotNull();
-        assertThat(crawlSettingRepository.findByAdmin_Id(admin.getId())).isPresent();
-    }
+    assertThat(result.intervalMinutes()).isEqualTo(120);
+    assertThat(result.enabled()).isTrue();
+    assertThat(result.nextRunAt()).isNotNull();
+    assertThat(crawlSettingRepository.findByAdminId(admin.getId())).isPresent();
+  }
 }

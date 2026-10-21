@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface SpreadsheetColumn {
-    String value();
+  String value();
 
-    int order();
+  int order();
 }

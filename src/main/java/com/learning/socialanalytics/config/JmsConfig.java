@@ -8,13 +8,13 @@ import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 
 @Configuration
 public class JmsConfig {
-    @Bean
-    DefaultJmsListenerContainerFactory jmsListenerContainerFactory(
-            ConnectionFactory connectionFactory) {
-        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory);
-        factory.setConcurrency(ApplicationConstants.JMS_LISTENER_CONCURRENCY);
-        factory.setSessionTransacted(true);
-        return factory;
-    }
+  @Bean
+  DefaultJmsListenerContainerFactory jmsListenerContainerFactory(
+      ConnectionFactory connectionFactory) {
+    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+    factory.setConnectionFactory(connectionFactory);
+    factory.setConcurrency(ApplicationConstants.JMS_LISTENER_CONCURRENCY);
+    factory.setSessionTransacted(true);
+    return factory;
+  }
 }

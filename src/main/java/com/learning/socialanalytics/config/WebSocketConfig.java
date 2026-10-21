@@ -11,20 +11,21 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
-    @Value("${app.frontend-origin}")
-    private String frontendOrigin;
+  @Value("${app.frontend-origin}")
+  private String frontendOrigin;
 
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker(ApplicationConstants.JMS_QUEUE_PREFIX);
-        registry.setApplicationDestinationPrefixes("/app");
-        registry.setUserDestinationPrefix("/user");
-    }
+  @Override
+  public void configureMessageBroker(MessageBrokerRegistry registry) {
+    registry.enableSimpleBroker(ApplicationConstants.JMS_QUEUE_PREFIX);
+    registry.setApplicationDestinationPrefixes("/app");
+    registry.setUserDestinationPrefix("/user");
+  }
 
-    @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint(ApplicationConstants.WEBSOCKET_ENDPOINT)
-                .setAllowedOrigins(frontendOrigin)
-                .withSockJS();
-    }
+  @Override
+  public void registerStompEndpoints(StompEndpointRegistry registry) {
+    registry
+        .addEndpoint(ApplicationConstants.WEBSOCKET_ENDPOINT)
+        .setAllowedOrigins(frontendOrigin)
+        .withSockJS();
+  }
 }

@@ -15,27 +15,27 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class SoapConfig {
-    @Bean
-    ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
-            ApplicationContext context) {
-        MessageDispatcherServlet servlet = new MessageDispatcherServlet();
-        servlet.setApplicationContext(context);
-        servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean<>(servlet, "/soap/*");
-    }
+  @Bean
+  ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
+      ApplicationContext context) {
+    MessageDispatcherServlet servlet = new MessageDispatcherServlet();
+    servlet.setApplicationContext(context);
+    servlet.setTransformWsdlLocations(true);
+    return new ServletRegistrationBean<>(servlet, "/soap/*");
+  }
 
-    @Bean
-    XsdSchema analyticsSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("soap/analytics.xsd"));
-    }
+  @Bean
+  XsdSchema analyticsSchema() {
+    return new SimpleXsdSchema(new ClassPathResource("soap/analytics.xsd"));
+  }
 
-    @Bean(name = SoapConstants.SERVICE_NAME)
-    DefaultWsdl11Definition analyticsWsdl(XsdSchema analyticsSchema) {
-        DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-        definition.setPortTypeName("MockExchangeRatePort");
-        definition.setLocationUri("/soap");
-        definition.setTargetNamespace(SoapConstants.NAMESPACE);
-        definition.setSchema(analyticsSchema);
-        return definition;
-    }
+  @Bean(name = SoapConstants.SERVICE_NAME)
+  DefaultWsdl11Definition analyticsWsdl(XsdSchema analyticsSchema) {
+    DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
+    definition.setPortTypeName("MockExchangeRatePort");
+    definition.setLocationUri("/soap");
+    definition.setTargetNamespace(SoapConstants.NAMESPACE);
+    definition.setSchema(analyticsSchema);
+    return definition;
+  }
 }

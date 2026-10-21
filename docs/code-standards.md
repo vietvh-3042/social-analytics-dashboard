@@ -16,7 +16,8 @@
 - PostgreSQL schema changes go in ordered Flyway SQL migrations. Hibernate uses `validate`, not schema mutation.
 - Scope all data reads and writes by the authenticated admin. Keep CSRF enabled and secrets in environment-backed configuration.
 - Declare shared route, queue, event, file-limit, and metric values in constants/enums.
-- Run `./gradlew spotlessApply` before review; `check` includes `spotlessCheck`.
+- Use Lombok for constructor injection (`@RequiredArgsConstructor`), entity accessors (`@Getter`), protected JPA no-args constructors, and class-based logging (`@Slf4j`). Avoid `@Data` on JPA entities.
+- Java formatting uses Spotless with the default Google Java Format style (2-space indentation), unused-import removal, trailing-whitespace cleanup, and a final newline. Run `./gradlew spotlessApply` before review; `check` includes `spotlessCheck`.
 
 ## File size and maintainability
 

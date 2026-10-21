@@ -6,5 +6,5 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdminUserRepository extends JpaRepository<AdminUser, UUID> {
-    Optional<AdminUser> findByFacebookSubject(String facebookSubject);
+  Optional<AdminUser> findByFacebookSubject(String facebookSubject);
 }

@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class SocialAnalyticsApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SocialAnalyticsApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(SocialAnalyticsApplication.class, args);
+  }
 }

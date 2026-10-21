@@ -10,13 +10,13 @@ import org.springframework.xml.transform.StringSource;
 
 @Endpoint
 public class MockExchangeRateEndpoint {
-    @PayloadRoot(namespace = SoapConstants.NAMESPACE, localPart = "GetExchangeRateRequest")
-    @ResponsePayload
-    public Source getExchangeRate(@RequestPayload Source request) {
-        return new StringSource(
-                "<ns:GetExchangeRateResponse xmlns:ns=\""
-                        + SoapConstants.NAMESPACE
-                        + "\"><ns:from>USD</ns:from><ns:to>USD</ns:to><ns:rate>1.0</ns:rate>"
-                        + "<ns:source>local-demo</ns:source></ns:GetExchangeRateResponse>");
-    }
+  @PayloadRoot(namespace = SoapConstants.NAMESPACE, localPart = "GetExchangeRateRequest")
+  @ResponsePayload
+  public Source getExchangeRate(@RequestPayload Source request) {
+    return new StringSource(
+        "<ns:GetExchangeRateResponse xmlns:ns=\""
+            + SoapConstants.NAMESPACE
+            + "\"><ns:from>USD</ns:from><ns:to>USD</ns:to><ns:rate>1.0</ns:rate>"
+            + "<ns:source>local-demo</ns:source></ns:GetExchangeRateResponse>");
+  }
 }

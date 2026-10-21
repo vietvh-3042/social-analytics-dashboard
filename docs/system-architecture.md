@@ -2,7 +2,7 @@
 
 ## Runtime components
 
-- **Next.js frontend** (`frontend/`): App Router login/dashboard UI, Axios browser client, TanStack Query remote data cache, Zustand transient chart-range state, Chart.js visualizations, and STOMP/SockJS updates.
+- **Next.js frontend** (`frontend/`): App Router login/dashboard UI, Axios browser client, TanStack Query remote data cache, Zustand transient chart-range state, a Chart.js combo visualization (engagement bars plus a followers trend on a secondary axis), and STOMP/SockJS updates.
 - **Spring Boot backend**: Facebook OAuth2 login and session security, REST APIs, Excel processing, synthetic metric generation, scheduled dispatch, JMS consumers, WebSocket notifications, and a typed SOAP demo endpoint.
 - **PostgreSQL**: source of truth for admins, posts, crawl settings, sync runs, and append-only metric snapshots. Flyway owns schema evolution.
 - **ActiveMQ Artemis**: queues metric generation jobs and import-completion events.

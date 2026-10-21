@@ -20,32 +20,32 @@ import org.springframework.test.web.servlet.MockMvc;
 @WebMvcTest(MetricController.class)
 @Import(SecurityConfig.class)
 @TestPropertySource(
-        properties = {
-            "app.frontend-origin=http://localhost:3000",
-            "app.frontend-url=http://localhost:3000"
-        })
+    properties = {
+      "app.frontend-origin=http://localhost:3000",
+      "app.frontend-url=http://localhost:3000"
+    })
 class SpaCsrfTokenRequestHandlerTest {
-    private static final String CSRF_TOKEN = "csrf-token-from-cookie";
+  private static final String CSRF_TOKEN = "csrf-token-from-cookie";
 
-    @Autowired private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    @MockitoBean private MetricSyncService metricSyncService;
-    @MockitoBean private FacebookOAuth2UserService facebookOAuth2UserService;
-    @MockitoBean private ClientRegistrationRepository clientRegistrationRepository;
+  @MockitoBean private MetricSyncService metricSyncService;
+  @MockitoBean private FacebookOAuth2UserService facebookOAuth2UserService;
+  @MockitoBean private ClientRegistrationRepository clientRegistrationRepository;
 
-    @Test
-    void acceptsRawCsrfTokenFromSpaCookieAndHeader() throws Exception {
-        mockMvc.perform(
-                        post("/api/sync-now")
-                                .cookie(new Cookie("XSRF-TOKEN", CSRF_TOKEN))
-                                .header("X-XSRF-TOKEN", CSRF_TOKEN)
-                                .with(oauth2Login()))
-                .andExpect(status().isOk());
-    }
+  @Test
+  void acceptsRawCsrfTokenFromSpaCookieAndHeader() throws Exception {
+    mockMvc
+        .perform(
+            post("/api/sync-now")
+                .cookie(new Cookie("XSRF-TOKEN", CSRF_TOKEN))
+                .header("X-XSRF-TOKEN", CSRF_TOKEN)
+                .with(oauth2Login()))
+        .andExpect(status().isOk());
+  }
 
-    @Test
-    void rejectsUnsafeRequestWithoutCsrfToken() throws Exception {
-        mockMvc.perform(post("/api/sync-now").with(oauth2Login()))
-                .andExpect(status().isForbidden());
-    }
+  @Test
+  void rejectsUnsafeRequestWithoutCsrfToken() throws Exception {
+    mockMvc.perform(post("/api/sync-now").with(oauth2Login())).andExpect(status().isForbidden());
+  }
 }

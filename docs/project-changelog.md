@@ -1,5 +1,17 @@
 # Project Changelog
 
+## 2026-10-21 — Java formatting style
+
+- Switched Spotless from the AOSP Google Java Format variant to the default Google Java Format style, reducing excessive indentation in nested lambdas and constructor calls across Java source and test files.
+
+## 2026-10-21 — Dashboard metric chart readability
+
+- Replaced the point-heavy metric line chart with grouped engagement bars and a followers trend on a secondary scale, keeping low-volume metrics readable when follower totals are much larger.
+
+## 2026-10-21 — Lombok adoption
+
+- Replaced manual dependency-injection constructors, entity getters/JPA no-args constructors, and logger fields with Lombok annotations across the backend without changing API or persistence behavior.
+
 ## 2026-10-21 — Importable report export columns
 
 - Fixed generated report workbooks so `post_url` is the first column and can be uploaded directly through the post import endpoint.
